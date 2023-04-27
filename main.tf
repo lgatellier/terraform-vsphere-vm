@@ -276,4 +276,10 @@ resource "vsphere_virtual_machine" "vm" {
 
   shutdown_wait_timeout = var.shutdown_wait_timeout
   force_power_off       = var.force_power_off
+
+  lifecycle {
+    ignore_changes = [
+      clone,
+    ]
+  }
 }
